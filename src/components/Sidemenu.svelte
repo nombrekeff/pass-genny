@@ -10,8 +10,8 @@
         align-items: center;
         justify-content: space-between;
         background-color: white;
-        width: 15%;
-        min-width: 15%;
+        width: 20%;
+        min-width: 20%;
         border-radius: 25px;
         padding: 80px 0;
     }
