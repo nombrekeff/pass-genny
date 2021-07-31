@@ -11,6 +11,18 @@ Password generator made for my DESIGN/DEV challenges.
 <img src="./media/website-mock.png" height="450">
 
 
+## Features
+- [x] Generate Passwords
+- [ ] Choice of options
+  - [x] Uppercase
+  - [x] Lowercase
+  - [x] Symbols
+  - [x] Numbers
+  - [x] Readable
+- [x] Variable Length
+- [x] Copy to clipboard
+- [x] Responsive (_had no time, will do it in the future, maybe_)
+
 ## Challenge description
 
 Make a password generator **Design + Code** in 2 days or less.
