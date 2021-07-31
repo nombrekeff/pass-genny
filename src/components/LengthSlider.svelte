@@ -1,45 +1,36 @@
 
 <script>
 import { onMount} from 'svelte';
-import { createEventDispatcher } from 'svelte';
 
-export let valPercent = 0;
+export let value = 12;
+export let min = 2;
+export let max = 64;
 
-const dispatch = createEventDispatcher();
-
+// Used to render a gradient up to valPercent
+// this is done to highlight the left-hand side of the range slider
+let valPercent = 0;
 
 onMount(() =>{
-    const mySlider = document.getElementById("my-slider");
+    const mySlider = document.getElementById("slider");
     const sliderValue = document.getElementById("slider-value");
 
-    function slider() {
-        valPercent = (mySlider.value / mySlider.max) * 100;
+    function sliderChanged() {
+        valPercent = (mySlider.value / max ) * 100 - min;
         mySlider.style.background = `linear-gradient(to right, #fff ${valPercent}%, rgba(255,255,255,0.5) ${valPercent}%)`;
-        sliderValue.textContent = mySlider.value;
         sliderValue.style.left = `${valPercent}%`;
-
-        dispatch('change', mySlider.value);
     }
 
-    slider(); 
-
-    mySlider.addEventListener('input', ()=> {
-        slider();
-    });
+    sliderChanged(); 
+    mySlider.addEventListener('input', sliderChanged);
 });
 </script>
 
 <div>
-    <b class="label text-white">Length: <span id="slider-value">0</span></b>
+    <b class="label text-white">Length: <span id="slider-value">{value}</span></b>
     <div class="container">
-        <input type="range" id="my-slider" min="0" max="64" value="12">
-        <span class="range-start">
-            0
-        </span>
-
-        <span class="range-end">
-            64
-        </span>
+        <input type="range" id="slider" min={min} max={max} bind:value={value}>
+        <span class="range-start">{min}</span>
+        <span class="range-end">{max}</span>
     </div>
 </div>
 
@@ -52,63 +43,7 @@ onMount(() =>{
         margin-top: 16px;
         position: relative;
     }
-    input[type="range"]{
-        position: relative;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        display: block;
-        width: 100%;
-        height: 2px;
-        background-color: rgba(255, 255, 255, .5);
-        border-radius: 8px;
-        outline: none;
-    }
-    input[type="range"]::-webkit-slider-runnable-track{
-        -webkit-appearance: none;
-        height: 8px;
-    }
-    input[type="range"]::-moz-track{
-        -moz-appearance: none;
-        height: 8px;
-    }
-    input[type="range"]::-ms-track{
-        appearance: none;
-        height: 8px;
-    }
-    input[type="range"]::-webkit-slider-thumb{
-        -webkit-appearance: none;
-        height: 20px;
-        width: 20px;
-        background-color: white;
-        border-radius: 50%;
-        cursor: pointer;
-        margin-top: -6px;
-        border: none;
-    }
-    input[type="range"]::-moz-range-thumb{
-        -webkit-appearance: none;
-        height: 20px;
-        width: 20px;
-        background-color: #fff;
-        border-radius: 50%;
-        cursor: pointer;
-        margin-top: -6px;
-        border: none;
-    }
-    input[type="range"]::-ms-thumb{
-        appearance: none;
-        height: 20px;
-        width: 20px;
-        background-color: #fff;
-        border-radius: 50%;
-        cursor: pointer;
-        margin-top: -6px;
-        border: none;
-    }
-    input[type="range"]:active::-webkit-slider-thumb{
-        background-color: var(--col-primary);
-        border: 1px solid white;
-    }
+    
     #slider-value{
         color: white;
         text-align: center;
@@ -122,11 +57,6 @@ onMount(() =>{
         font-size: 12px;
     }
 
-    .range-start {
-        left: 0;
-    }
-
-    .range-end {
-        right: 0;
-    }
+    .range-start { left: 0; }
+    .range-end { right: 0; }
 </style>

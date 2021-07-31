@@ -1,6 +1,23 @@
 <script>
 
 import IconButton from './IconButton.svelte';
+import { copyTextFromElement } from '../lib/Utils.js';
+import { createEventDispatcher, onMount } from 'svelte';
+
+export let password = '';
+
+let copyElement;
+
+const dispatch = createEventDispatcher();
+const onClick = () => copyElement.select();
+const onMounted = () => copyElement = document.querySelector('.input-password');
+
+onMount(onMounted);
+
+function copy() {
+    copyTextFromElement(copyElement);
+    dispatch('copy');
+}
 
 </script>
 
@@ -17,11 +34,17 @@ import IconButton from './IconButton.svelte';
         font-weight: 700;
         line-height: 44px;
         letter-spacing: 0.085em;
+        width: 100%;
 
         background: none;
         border: none;
         color: white;
         padding: 16px 8px;
+    }
+
+    .input-password::selection {
+        background-color: white;
+        color: var(--col-primary);
     }
 
     .input-password-actions{
@@ -32,10 +55,10 @@ import IconButton from './IconButton.svelte';
 <div>
     <b class="label text-white">Generated Password</b>
     <div class="input-password-wrapper">
-        <input class="input-password" type="text" readonly value="ptfG_*anBRt">
+        <input class="input-password" type="text" readonly value={password} on:click={onClick}>
         <div class="input-password-actions">
-            <IconButton icon="refresh"/>
-            <IconButton icon="content_copy"/>
+            <IconButton icon="refresh" on:click={() => dispatch('refresh')}/>
+            <IconButton icon="content_copy" id="copy" on:click={copy}/>
         </div>
     </div>
 </div>
