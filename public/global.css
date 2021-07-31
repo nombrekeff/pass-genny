@@ -1,3 +1,17 @@
+
+:root {
+	--col-primary: #606EEC;
+	--col-bg-gray: #F3F5FC;
+}
+
+.bg-light {
+	background-color: var(--col-bg-gray);
+}
+
+.bg-primary {
+	background-color: var(--col-primary);
+}
+
 html, body {
 	position: relative;
 	width: 100%;
@@ -5,59 +19,61 @@ html, body {
 }
 
 body {
-	color: #333;
 	margin: 0;
-	padding: 8px;
+	padding: 30px;
 	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: 'Montserrat', sans-serif;
+	background-color: var(--col-bg-gray)!important;
+}
+
+.content-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--col-primary);
+	width: 100%;
+	border-radius: 25px;
+	padding: 80px 0;
+	margin-left: 40px;
 }
 
 a {
-	color: rgb(0,100,200);
-	text-decoration: none;
+	text-decoration: none!important;
+	color: var(--col-primary);
+	opacity: .6;
+	position: relative;
+	font-size: 18px;
+	height: 44px;
 }
 
 a:hover {
-	text-decoration: underline;
+	opacity: .8;
 }
 
-a:visited {
-	color: rgb(0,80,160);
+a:active, a[aria-current] {
+	opacity: 1;
+	font-weight: bold;
 }
 
-label {
-	display: block;
+a::after {
+	content: '';
+	position: absolute;
+	width: 32px;
+	height: 2px;
+	border-radius: 50px;
+	overflow: hidden;
+	background-color: var(--col-primary);
+	left: 50%;
+	top: 60%;
+	transform: translateX(-50%) rotateY(90deg) ;
+	transition: transform 0.2s ease, opacity 0.3s ease;
 }
 
-input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	-webkit-padding: 0.4em 0;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
+a:hover::after {
+	transform: translateX(-50%) rotateY(0);
 }
 
-input:disabled {
-	color: #ccc;
-}
-
-button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
-}
-
-button:disabled {
-	color: #999;
-}
-
-button:not(:disabled):active {
-	background-color: #ddd;
-}
-
-button:focus {
-	border-color: #666;
+a[aria-current]::after{
+	transform: translateX(-50%) rotateY(0deg);
 }
