@@ -6,6 +6,8 @@
 
 Password generator made for my DESIGN/DEV challenges. 
 
+<a href="https://pass-genny.vercel.app/"><img src="https://img.shields.io/badge/-DEMO HERE!-606EEC?style=for-the-badge"/></a>
+
 
 <img src="./media/website-mock.png" height="450">
 
@@ -22,8 +24,8 @@ Code related stuff was done in around 4h, code + setting up repo, deploying to v
 
 ### Tech
 For the website I used:
-* Svelte, + svelte-routing
-* Tilt.js
+* [Svelte](https://svelte.dev/), + [svelte-routing](https://github.com/EmilTholin/svelte-routing)
+* [Tilt.js](https://github.com/gijsroge/tilt.js)
 
 Otherwise everyting else is done by me :)
 
