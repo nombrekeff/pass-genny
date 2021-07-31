@@ -8,11 +8,10 @@ Password generator made for my DESIGN/DEV challenges.
 
 <a href="https://pass-genny.vercel.app/"><img src="https://img.shields.io/badge/-DEMO HERE!-606EEC?style=for-the-badge"/></a>
 
-
 <img src="./media/website-mock.png" height="450">
 
 
-## Challenge description
+## Challenge description
 
 Make a password generator **Design + Code** in 2 days or less.
 
@@ -22,7 +21,7 @@ Design was made in 4-6h, did not track the time very well.
 ### Code
 Code related stuff was done in around 4h, code + setting up repo, deploying to vercel.
 
-### Tech
+### Tech
 For the website I used:
 * [Svelte](https://svelte.dev/), + [svelte-routing](https://github.com/EmilTholin/svelte-routing)
 * [Tilt.js](https://github.com/gijsroge/tilt.js)
@@ -32,7 +31,7 @@ Otherwise everyting else is done by me :)
 #### Help me get RICHHHH, give the repo some love! :heart:
 JK, but feel free to give the repo a star or share the word if you enjoyed the project. I sure did!
 
-## Usage
+## Usage
 
 1. `npm install`
 2. `npm run dev`
