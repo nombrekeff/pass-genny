@@ -16,7 +16,9 @@ Password generator made for my DESIGN/DEV challenges.
 Make a password generator **Design + Code** in 2 days or less.
 
 ### Design
-Design was made in 4-6h, did not track the time very well.
+Design was made in 4-6h in Figma, did not track the time very well.
+
+You can check the Figma file [here](https://www.figma.com/file/UqKfdepVu3H9cD9EYRuNNJ/pass-genny?node-id=0%3A1)
 
 ### Code
 Code related stuff was done in around 4h, code + setting up repo, deploying to vercel.
