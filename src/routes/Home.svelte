@@ -10,9 +10,13 @@ export let pg = new PasswordGenerator();
 
 let password;
 let hasCopied;
+let passwordCopied;
 
 const generatePassword = () => password = pg.generate();
-const onCopy = (evt) => hasCopied = true;
+const onCopy = (evt) => {
+    hasCopied = true;
+    passwordCopied = password;
+};
 
 $: password = pg.generate();
 </script>
@@ -41,8 +45,8 @@ $: password = pg.generate();
         <PasswordOptions bind:options={pg.options} />
    </div>
 
-    <SnackBar showing={hasCopied}>
-        <span>Copied to clipboard: <b>{password}</b></span>
+    <SnackBar bind:showing={hasCopied}>
+        <span>Copied to clipboard: <b>{passwordCopied}</b></span>
         <IconButton on:click={() => hasCopied = false} icon="close" color="var(--col-primary)"/>
     </SnackBar>
 </div>
