@@ -2,10 +2,7 @@
 import { onMount } from 'svelte';
 
 onMount(() => {
-    VanillaTilt.init(document.querySelectorAll(".cta"), {
-        // max: 10,
-		// speed: 800
-    });
+    VanillaTilt.init(document.querySelectorAll(".cta"));
 });
 
 </script>
@@ -73,10 +70,6 @@ onMount(() => {
         transition: transform 0.3s ease;
         overflow: hidden;
     }
-
-    /* .cta:hover, .cta:focus {
-        transform: rotateX(-12deg);
-    } */
 </style>
 
 <div class="challenge">

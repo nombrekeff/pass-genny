@@ -6,7 +6,7 @@ import { PasswordGenerator } from '../lib/PasswordGenerator.js';
 import IconButton from '../components/IconButton.svelte';
 import SnackBar from '../components/SnackBar.svelte';
 
-const pg = new PasswordGenerator();
+export let pg = new PasswordGenerator();
 
 let password;
 let hasCopied;
