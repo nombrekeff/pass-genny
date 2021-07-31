@@ -1,16 +1,22 @@
 <script>
     import { slide } from 'svelte/transition';
     import { quintOut } from 'svelte/easing';
+    import { createEventDispatcher } from 'svelte';
 
     export let showing = false;
+    let isShowing = false;
+
+    const dispatch = createEventDispatcher();
 
     let closeTimeout;
 
     $: {
+        isShowing = showing;
         clearTimeout(closeTimeout);
         
         closeTimeout = setTimeout(() => {
-            showing = false;
+            isShowing = false;
+            dispatch('change', isShowing);
         }, 3e3);
     } 
 </script>
@@ -32,7 +38,7 @@
     }
 </style>
 
-{#if showing}
+{#if isShowing}
     <div class="snackbar" transition:slide="{{delay: 250, duration: 300, easing: quintOut }}">
         <slot></slot>
     </div>

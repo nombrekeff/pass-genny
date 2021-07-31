@@ -45,7 +45,7 @@ $: password = pg.generate();
         <PasswordOptions bind:options={pg.options} />
    </div>
 
-    <SnackBar bind:showing={hasCopied}>
+    <SnackBar showing={hasCopied} on:change={(evt) => hasCopied = evt.detail}>
         <span>Copied to clipboard: <b>{passwordCopied}</b></span>
         <IconButton on:click={() => hasCopied = false} icon="close" color="var(--col-primary)"/>
     </SnackBar>
