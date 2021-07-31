@@ -32,10 +32,9 @@
 <div class="sidenav">
     <Logo/>
     <nav>
-        <Link to="/">Home</Link>
-        <Link to="about">About</Link>
+        <Link to="/">Genny</Link>
         <Link to="challenge">Challenge</Link>
-        <a href="https://github.com/nombrekef" target="_blank">GitHub</a>
+        <a href="https://github.com/nombrekeff" target="_blank">GitHub</a>
     </nav>
 
     <span class="version">v0.0.1</span>
