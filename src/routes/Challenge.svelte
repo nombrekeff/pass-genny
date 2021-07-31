@@ -1,5 +1,6 @@
 <script>
 import { onMount } from 'svelte';
+import { navigate } from "svelte-routing";
 
 onMount(() => {
     VanillaTilt.init(document.querySelectorAll(".cta"));
@@ -13,22 +14,37 @@ onMount(() => {
         height: 100%;
         position: relative;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        justify-content: start;
         flex-direction: column;
         perspective: 300px;
     }
 
     .title {
-        font-size: 48px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 52px;
-        letter-spacing: 0.085em;
-        text-align: center;
         color: white;
         margin: 0 0 64px 0;
+        position: relative;
     }
+
+    .title div {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 19px;
+        letter-spacing: 0.085em;
+        text-align: left;
+    }
+
+    .title::after {
+        content: '';
+        position: absolute;
+        width: 128px;
+        height: 4px;
+        bottom: -32px;
+        left: 0;
+        background: white;
+        border-radius: 3px;
+    }
+
     .title b {
         font-family: Montserrat;
         font-size: 64px;
@@ -36,7 +52,6 @@ onMount(() => {
         font-weight: 800;
         line-height: 69px;
         letter-spacing: 0.085em;
-        text-align: center;
     }
 
     .heading {
@@ -46,13 +61,11 @@ onMount(() => {
         font-weight: normal;
         line-height: 32px;
         letter-spacing: 0.14em;
-        text-align: center;
         color: white;
         margin: 0 0 128px 0;
     }
 
     .cta {
-        opacity: 0.8;
         background: rgb(40 44 74);
         color: white;
         border: none;
@@ -73,16 +86,16 @@ onMount(() => {
 </style>
 
 <div class="challenge">
-    <h4 class="title">
-        Welcome to <br>
-        <b>PASS GENNY</b>
-    </h4>
+    <div class="title">
+        <div>DESIGN / DEV</div>
+        <b>CHALLENGE #1</b>
+    </div>
 
     <p class="heading">
-        Password generator, result of one of my <br> <b>monthly design/dev challenges</b>
+        This challenge consisted in designing and coding a <b>password generator</b> in 2 days.
     </p>
  
-    <button class="cta" data-tilt data-tilt-glare data-tilt-max-glare="0.2" data-tilt-max="10">
+    <button class="cta" on:click={() => navigate('/')} data-tilt data-tilt-glare data-tilt-max-glare="0.2" data-tilt-max="10">
         <span>TRY <b>THE GENNY</b></span>
     </button>
 </div>
