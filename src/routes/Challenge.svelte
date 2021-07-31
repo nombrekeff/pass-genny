@@ -1,11 +1,5 @@
 <script>
-import { onMount } from 'svelte';
 import { navigate } from "svelte-routing";
-
-onMount(() => {
-    VanillaTilt.init(document.querySelectorAll(".cta"));
-});
-
 </script>
 
 <style>
@@ -66,8 +60,8 @@ onMount(() => {
     }
 
     .cta {
-        background: rgb(40 44 74);
-        color: white;
+        background: white;
+        color: var(--col-primary);
         border: none;
         height: 60px;
         width: 284px;
@@ -95,7 +89,7 @@ onMount(() => {
         This challenge consisted in designing and coding a <b>password generator</b> in 2 days.
     </p>
  
-    <button class="cta" on:click={() => navigate('/')} data-tilt data-tilt-glare data-tilt-max-glare="0.2" data-tilt-max="10">
+    <button class="cta" on:click={() => navigate('/')}>
         <span>TRY <b>THE GENNY</b></span>
     </button>
 </div>
