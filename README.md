@@ -18,7 +18,7 @@ Password generator made for my DESIGN/DEV challenges.
   - [x] Lowercase
   - [x] Symbols
   - [x] Numbers
-  - [x] Readable
+  - [ ] Readable
 - [x] Variable Length
 - [x] Copy to clipboard
 - [x] Responsive (_had no time, will do it in the future, maybe_)
