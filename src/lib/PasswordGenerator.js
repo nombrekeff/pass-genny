@@ -29,8 +29,7 @@ export class PasswordGenerator {
         );
     }
 
-    generate() {
-        let password = '';
+    _getCharactersForOptions() {
         const combinedCaracters = [];
 
         if (this.options.lowercase)
@@ -42,7 +41,12 @@ export class PasswordGenerator {
         if (this.options.numbers)
             combinedCaracters.push(...PasswordGenerator.numbersString);
 
-        combinedCaracters.sort(() => Math.random() > .5);
+        return combinedCaracters;
+    }
+
+    generate() {
+        let combinedCaracters = this._getCharactersForOptions();
+        let password = '';
 
         for (let c = 0; c < this.options.length; c++) {
             password += combinedCaracters[this.random(0, combinedCaracters.length)];

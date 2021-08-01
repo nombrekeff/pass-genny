@@ -1,7 +1,7 @@
 <script>
 
 import IconButton from './IconButton.svelte';
-import { copyTextFromElement } from '../lib/Utils.js';
+import { copyTextToClipboard } from '../lib/Utils.js';
 import { createEventDispatcher, onMount } from 'svelte';
 
 export let password = '';
@@ -9,13 +9,13 @@ export let password = '';
 let copyElement;
 
 const dispatch = createEventDispatcher();
-const onClick = () => copyElement.select();
 const onMounted = () => copyElement = document.querySelector('.input-password');
+const onClick = () => copyElement.select();
 
 onMount(onMounted);
 
 function copy() {
-    copyTextFromElement(copyElement);
+    copyTextToClipboard(password);
     dispatch('copy');
 }
 
@@ -55,7 +55,7 @@ function copy() {
 <div>
     <b class="label text-white">Generated Password</b>
     <div class="input-password-wrapper">
-        <input class="input-password" type="text" readonly value={password} on:click={onClick}>
+        <input class="input-password" id="pasword" type="text" readonly value={password} on:click={onClick}>
         <div class="input-password-actions">
             <IconButton icon="refresh" on:click={() => dispatch('refresh')}/>
             <IconButton icon="content_copy" id="copy" on:click={copy}/>
