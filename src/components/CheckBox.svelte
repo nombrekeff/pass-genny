@@ -3,6 +3,7 @@
 
     export let label = '';
     export let checked = false;
+    export let disabled = false;
 
 
     const dispatch = createEventDispatcher();
@@ -42,7 +43,7 @@
 </style>
 
 <div>
-    <button class="checkbox-button" class:checked={checked} on:click={buttonClicked}>
+    <button class="checkbox-button" disabled={disabled} class:checked={checked} on:click={buttonClicked}>
         <span class="material-icons">
             {checked ? 'check_box' : 'check_box_outline_blank'}
         </span>

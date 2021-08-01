@@ -43,7 +43,7 @@
     </div>
     <div class="check-row">
         <div>
-            <CheckBox bind:checked={options.readable} on:change={dispatchChange} label="Readable"></CheckBox>
+            <CheckBox disabled={true} bind:checked={options.readable} on:change={dispatchChange} label="Readable"></CheckBox>
         </div>
         <div></div>
     </div>
