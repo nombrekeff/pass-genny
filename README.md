@@ -21,7 +21,7 @@ Password generator made for my DESIGN/DEV challenges.
   - [ ] Readable
 - [x] Variable Length
 - [x] Copy to clipboard
-- [x] Responsive (_had no time, will do it in the future, maybe_)
+- [ ] Responsive (_had no time, will do it in the future, maybe_)
 
 ## Challenge description
 
