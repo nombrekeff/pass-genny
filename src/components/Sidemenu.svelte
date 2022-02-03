@@ -34,7 +34,7 @@
     <nav>
         <Link to="/">Genny</Link>
         <Link to="challenge">Challenge</Link>
-        <a href="https://github.com/nombrekeff" target="_blank">GitHub</a>
+        <a href="https://github.com/nombrekeff/pass-genny" target="_blank">GitHub</a>
     </nav>
 
     <span class="version">v0.0.1</span>
